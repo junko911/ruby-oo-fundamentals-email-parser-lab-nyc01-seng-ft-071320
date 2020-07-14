@@ -5,14 +5,24 @@
 
 class EmailAddressParser
 
+  attr_accessor :list_of_emails
+
   def initialize(email)
     @email = email
+    @list_of_emails = []
   end
 
   def parse
-    @email.split(', ').map do |email|
+    @list_of_emails = @email.split(',').map do |email|
       email.split
     end.flatten.uniq
   end
-  
+
+
+
+
 end
+
+# service = EmailAddressParser.new("sd")
+# service.perse
+# service.list_of_emails
